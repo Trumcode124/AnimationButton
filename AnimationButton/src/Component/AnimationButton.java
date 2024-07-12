@@ -53,25 +53,30 @@ public class AnimationButton extends JButton implements ActionListener{
 		// TODO Auto-generated method stub
 		if(status == false) {
 			status = true;
+			//Khi nút bật thì thay đổi màu
 			setColor1(Color.decode("#000046"));
 			setColor2(Color.decode("#1CB5E0"));
+			//Tạo khoảng thời gian lặp lại là 1 millisecond giây, thời gian càng thấp thì đỗ trễ càng nhanh
 			t1 = new Timer(1,new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
 					// TODO Auto-generated method stub
 					if(xlocate < 40) {
+						//Ứng với 1 millisecond thì nó di chuyển được 2 bước
 						xlocate += 2; //Increase the speed of the animation
+						//Cập nhật vị trí của vật thể
 						doc.setBounds(xlocate,0,40,40);
+						///Cập nhật lại giao diện để hiển thị thay đổi
 						invalidate();
 						validate();
 						repaint();
 					}else {
 						xlocate = 40;
-						t1.stop();
+						t1.stop();//Dừng trạng thái
 					}
 				}
 			});
-			t1.start();
+			t1.start();//Timer sẽ bắt đầu chạy và lập lịch các sự kiện theo delay đã định.
 		}else {
 			status = false;
 			setColor1(Color.decode("#111111"));
@@ -83,6 +88,7 @@ public class AnimationButton extends JButton implements ActionListener{
 					if(xlocate > 0) {
 						xlocate -= 2; //Reduce the speed of the animation
 						doc.setBounds(xlocate,0,40,40);
+						
 						invalidate();
 						validate();
 						repaint();
