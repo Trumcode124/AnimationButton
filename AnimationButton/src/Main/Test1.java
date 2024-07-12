@@ -13,7 +13,7 @@ public class Test1 extends JFrame{
 		this.setLayout(null);
 		AnimationButton btn = new AnimationButton();
 		btn.setBounds(100, 100, 80, 40);
-		this.add(btn);
+		this.add(btn);//dkajdsadaskj
 	}
 	public static void main(String[] args) {
 		Test1 t = new Test1();
